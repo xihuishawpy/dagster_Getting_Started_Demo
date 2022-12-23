@@ -10,7 +10,7 @@ from dagster import asset
 def cereals():
     response = requests.get("https://docs.dagster.io/assets/cereal.csv")
     lines = response.text.split("\n")
-    return [row for row in csv.DictReader(lines)]
+    return list(csv.DictReader(lines))
 
 
 # 上游资产名称作为参数传入
